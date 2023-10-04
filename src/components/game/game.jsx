@@ -18,6 +18,7 @@ const Game = () => {
     const arrFill = Array(9).fill(null);
     const [field, setField] = useState(arrFill);
     const [xIsNext, setXIsNext] = useState(true); // первый ход за X
+    const [stepNumber, setStepNumber] = useState(1); // номер хода
     const winner = determinationOfWinner(field);
     // console.log(Field);
 
@@ -27,12 +28,25 @@ const Game = () => {
         fieldCopy[index] = xIsNext ? "X" : "0"; // определяем чей ход: X или 0
         setField(fieldCopy);
         setXIsNext(!xIsNext); // обновляем состояния
+        setStepNumber(stepNumber + 1);
+        // console.log(stepNumber);
     };
+
+    let status;
+    if (winner) {
+        status = "Победил: " + winner + "!";
+    } else if (stepNumber === 10 && winner === null) {
+        status = "Ничья";
+    } else {
+        status = "Сейчас ходит " + (xIsNext ? "X" : "0");
+    }
 
     const newGame = () => {
         const handleClickNewGame = () => {
             setField(arrFill);
+            setStepNumber(1);
         };
+
         return (
             <button
                 className={styles.start_btn}
@@ -46,11 +60,7 @@ const Game = () => {
     return (
         <>
             <div className={styles.wrapper}>
-                <p className={styles.game_info}>
-                    {winner
-                        ? "Победил " + winner + "!"
-                        : "Сейчас ходит " + (xIsNext ? "X" : "0")}
-                </p>
+                <p className={styles.game_info}>{status}</p>
                 <Field
                     cells={field}
                     onClick={handleClick}
