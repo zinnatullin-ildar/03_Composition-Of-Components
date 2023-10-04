@@ -1,0 +1,41 @@
+.wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #9aaec9;
+}
+
+.title {
+    margin-bottom: 50px;
+}
+
+.start_btn {
+    width: 160px;
+    height: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
+    color: white;
+    background: black;
+    ;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.start_btn:hover {
+    color: black;
+    background: white;
+    transition: 0.3s all easy;
+}
+
+.game_info {
+    margin-bottom: 30px;
+    font-size: 36px;
+    font-style: bold;
+    color: rgb(4, 66, 30);
+}
