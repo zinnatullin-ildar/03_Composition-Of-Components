@@ -60,6 +60,7 @@ const Game = () => {
     return (
         <>
             <div className={styles.wrapper}>
+                <p className={styles.step}>Ход: {stepNumber}</p>
                 <p className={styles.game_info}>{status}</p>
                 <Field
                     cells={field}

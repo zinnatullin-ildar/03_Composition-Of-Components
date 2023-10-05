@@ -39,3 +39,8 @@
     font-style: bold;
     color: rgb(4, 66, 30);
 }
+
+.step {
+    font-size: 24px;
+    font-weight: bold;
+}
